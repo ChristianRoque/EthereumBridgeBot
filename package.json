@@ -1,0 +1,41 @@
+{
+  "name": "ethereumbridgebot",
+  "version": "1.0.0",
+  "description": "Ethereum API bot to handle crosschain communication between contracts. ",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristianRoque/EthereumBridgeBot.git"
+  },
+  "keywords": [
+    "API",
+    "BOT",
+    "Ethereum",
+    "Node.js",
+    "Javascript",
+    "Web3",
+    "Truffle",
+    "Contracts"
+  ],
+  "author": "Christian Roque",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChristianRoque/EthereumBridgeBot/issues"
+  },
+  "homepage": "https://github.com/ChristianRoque/EthereumBridgeBot#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "web3": "^1.4.0"
+  }
+}
