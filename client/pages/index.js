@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   return (
     <div>
-      <div>Hello world</div>
+      <div>Hello world - Is it up</div>
     </div>
   );
 }
