@@ -1,13 +1,11 @@
 import Navbar from "../components/indexComponents/Navbar";
 import React from "react";
-import { useStore } from "../State/StoreContext";
+// import { useStore } from "../State/StoreContext";
 
 export default function Home() {
-  const store = useStore();
+  // const store = useStore();
 
-  React.useEffect(() => {
-    store.loadChain();
-  }, []);
+  React.useEffect(() => {}, []);
 
   return (
     <div>

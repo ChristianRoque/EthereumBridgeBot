@@ -10,6 +10,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { useObserver } from "mobx-react";
 import { useStore } from "../../State/StoreContext";
+import Web from "web3";
 
 const Bar = styled.div`
   display: flex;
@@ -76,7 +77,7 @@ export default function Navbar() {
     prevOpen.current = open;
   }, [open]);
 
-  return useObserver(() => (
+  return (
     <>
       <Bar>
         <Left>
@@ -144,5 +145,5 @@ export default function Navbar() {
         </Right>
       </Bar>
     </>
-  ));
+  );
 }
