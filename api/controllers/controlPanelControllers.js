@@ -69,9 +69,6 @@ exports.binanceContract = async function (req, res) {
   // Read docs for more customization
   // https://web3js.readthedocs.io/en/v1.3.4/web3-eth.html
 
-  let response = await web3BNB.eth.getBlockNumber();
-  console.log(response);
-
   // let myData = contract.methods.anyMethod().encodeABI();
 
   web3BNB.eth.getTransactionCount(account, (err, txCount) => {
