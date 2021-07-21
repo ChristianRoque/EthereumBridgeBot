@@ -3,7 +3,6 @@ const path = require("path");
 const Transaction = require("@ethereumjs/tx").Transaction;
 const contractJSON = require("../abis/Bank.json");
 const Common = require("@ethereumjs/common").default;
-const Moralis = require("moralis/node");
 
 require("dotenv").config({ path: path.join(__dirname, "../../.env") });
 
