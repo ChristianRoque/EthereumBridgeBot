@@ -10,6 +10,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { observer } from "mobx-react-lite";
 import { useStore } from "../../State/StoreContext";
+import MetaMaskOnboarding from "@metamask/onboarding";
 
 const Bar = styled.div`
   display: flex;
@@ -41,6 +42,8 @@ const Right = styled.div`
   display: flex;
   align-items: center;
 `;
+
+const Connect = styled(Button)``;
 
 const NavBar = observer(() => {
   const [open, setOpen] = React.useState(false);
@@ -76,6 +79,16 @@ const NavBar = observer(() => {
     prevOpen.current = open;
   }, [open]);
 
+  const onClick = () => {
+    if (MetaMaskOnboarding.isMetaMaskInstalled()) {
+      window.ethereum
+        .request({ method: "eth_requestAccounts" })
+        .then((newAccounts) => (store.userAddress = String(newAccounts)));
+    } else {
+      onboarding.current.startOnboarding();
+    }
+  };
+
   return (
     <>
       <Bar>
@@ -89,6 +102,16 @@ const NavBar = observer(() => {
           <div>Ethereum Bridge</div>
         </Left>
         <Right>
+          <Connect
+            onClick={onClick}
+            disabled={
+              store.userAddress != "0x0000000000000000000000000000000000000000"
+            }
+          >
+            {store.userAddress != "0x0000000000000000000000000000000000000000"
+              ? ""
+              : "Connect"}
+          </Connect>
           <UserInfo>
             {" "}
             {store.userAddress.substring(0, 4) +
@@ -104,7 +127,7 @@ const NavBar = observer(() => {
             >
               <Image
                 src="https://image.flaticon.com/icons/png/512/60/60995.png"
-                alt="Picture of the author"
+                alt="Down arrow"
                 width={20}
                 height={20}
               />

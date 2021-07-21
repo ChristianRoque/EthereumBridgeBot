@@ -8,7 +8,7 @@ const MainContainer = styled.div`
   height: 400px;
   width: 98%;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 const ContractContainer = styled.div`
@@ -20,7 +20,7 @@ const ContractContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   border-radius: 30px;
-  background-color: rgb(32, 185, 133, 0.5);
+  background-color: rgb(32, 185, 133, 0.6);
 `;
 
 const ContractPanel = observer(() => {

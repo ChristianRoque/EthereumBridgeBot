@@ -27,8 +27,9 @@ export function createStateStore() {
             console.error(err);
           });
 
-        // Save current account address logged on metamask
-        this.userAddress = response.toString();
+        if (response.length != 0) {
+          this.userAddress = response.toString();
+        }
 
         // Handle account change from metamask
         await provider.on("accountsChanged", this.handleAccountsChanged);
