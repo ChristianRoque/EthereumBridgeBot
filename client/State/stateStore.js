@@ -8,6 +8,7 @@ configure({
 
 export function createStateStore() {
   return {
+    // ***************************** Blockchain State ****************************************
     userAddress: "0x0000000000000000000000000000000000000000",
     async loadChain() {
       // Detect provider

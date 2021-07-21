@@ -14,7 +14,7 @@ import { useStore } from "../../State/StoreContext";
 const Bar = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0 1.5% 0 1.5%;
+  padding: 0 5% 0 5%;
   flex-direction: row;
   width: 100%;
   align-items: center;
@@ -23,7 +23,7 @@ const Bar = styled.div`
 `;
 const Left = styled.div`
   display: flex;
-  width: 13%;
+  width: 190px;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
