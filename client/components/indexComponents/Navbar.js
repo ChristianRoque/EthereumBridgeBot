@@ -8,9 +8,8 @@ import Paper from "@material-ui/core/Paper";
 import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
-import { useObserver } from "mobx-react";
+import { observer } from "mobx-react-lite";
 import { useStore } from "../../State/StoreContext";
-import Web from "web3";
 
 const Bar = styled.div`
   display: flex;
@@ -43,7 +42,7 @@ const Right = styled.div`
   align-items: center;
 `;
 
-export default function Navbar() {
+const NavBar = observer(() => {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   const store = useStore();
@@ -146,4 +145,6 @@ export default function Navbar() {
       </Bar>
     </>
   );
-}
+});
+
+export default NavBar;
