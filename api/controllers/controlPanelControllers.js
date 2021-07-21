@@ -15,7 +15,7 @@ let web3ETH = new Web3(
   )
 );
 
-let web3BNB = new Web3(
+let web3BSC = new Web3(
   // In this case we will use moralis connecto to BSC chain
   // Refer to web3 docs for more customization
   new Web3.providers.WebsocketProvider(
@@ -28,15 +28,19 @@ let web3BNB = new Web3(
 // Import user and contract data
 const account = process.env.BOT_ADDRESS;
 const privateKey = Buffer.from(process.env.PRIVATE_KEY, "hex");
+
 // Create first contract instance - ETH CHAIN
-const contractAddress = process.env.FIRST_CONTRACT_ADDRESS;
+const firstContractAddress = process.env.FIRST_CONTRACT_ADDRESS;
+const firstContractChain = "ETH | Rinkeby tesnet";
 const firstContract = new web3ETH.eth.Contract(
   contractJSON.abi,
   contractAddress
 );
+
 // Create second contract instance - BSC CHAIN
-const contractAddress = process.env.SECOND_CONTRACT_ADDRESS;
-const secondContract = new web3ETH.eth.Contract(
+const secondContractAddress = process.env.SECOND_CONTRACT_ADDRESS;
+const secondContractChain = "BSC | BSC testnet";
+const secondContract = new web3BSC.eth.Contract(
   contractJSON.abi,
   contractAddress
 );
@@ -52,7 +56,7 @@ exports.ethereumContract = async function (req, res) {
     const txObject = {
       nonce: web3ETH.utils.toHex(txCount),
       from: account,
-      to: firstContract,
+      to: firstContractAddress,
       value: web3ETH.utils.toHex(web3ETH.utils.toWei("0.001", "ether")),
       gasLimit: web3ETH.utils.toHex(21000),
       gasPrice: web3ETH.utils.toHex(web3ETH.utils.toWei("20", "gwei")),
@@ -79,14 +83,14 @@ exports.binanceContract = async function (req, res) {
 
   // let myData = secondContract.methods.anyMethod().encodeABI();
 
-  web3BNB.eth.getTransactionCount(account, (err, txCount) => {
+  web3BSC.eth.getTransactionCount(account, (err, txCount) => {
     const txObject = {
-      nonce: web3BNB.utils.toHex(txCount),
+      nonce: web3BSC.utils.toHex(txCount),
       from: account,
-      to: secondContract,
-      value: web3BNB.utils.toHex(web3BNB.utils.toWei("0.001", "ether")),
-      gasLimit: web3BNB.utils.toHex(21000),
-      gasPrice: web3BNB.utils.toHex(web3BNB.utils.toWei("20", "gwei")),
+      to: secondContractAddress,
+      value: web3BSC.utils.toHex(web3BSC.utils.toWei("0.001", "ether")),
+      gasLimit: web3BSC.utils.toHex(21000),
+      gasPrice: web3BSC.utils.toHex(web3BSC.utils.toWei("20", "gwei")),
       // data: myData,
     };
 
@@ -102,8 +106,8 @@ exports.binanceContract = async function (req, res) {
     const signedTx = tx.sign(privateKey);
     const serializedTx = signedTx.serialize();
 
-    let txHash = web3BNB.eth
-      .sendSignedTransaction(web3BNB.utils.toHex(serializedTx))
+    let txHash = web3BSC.eth
+      .sendSignedTransaction(web3BSC.utils.toHex(serializedTx))
       .on("receipt", console.log)
       .catch((e) => console.log("e: ", e));
   });
@@ -119,4 +123,44 @@ exports.contractInteraction = async function (req, res) {
   } catch (e) {
     console.log("Error, reserver: ", e);
   }
+};
+
+exports.firstContractInfo = async function (req, res) {
+  const balance = web3ETH.eth.getBalance(firstContractAddress);
+
+  return {
+    name: "First Contract",
+    address: firstContractAddress,
+    chain: firstContractChain,
+    online: true,
+    balance: balance,
+  };
+};
+
+exports.secondContractInfo = async function (req, res) {
+  const balance = web3BSC.eth.getBalance(secondContractAddress);
+
+  return {
+    name: "Second Contract",
+    address: secondContractAddress,
+    chain: secondContractChain,
+    online: true,
+    balance: balance,
+  };
+};
+
+exports.botInfo = async function (req, res) {
+  const firstChainBalance = web3ETH.eth.getBalance(firstContractAddress);
+  const secondChainBalance = web3BSC.eth.getBalance(secondContractAddress);
+
+  return {
+    name: "Test",
+    address: account,
+    chain: firstContractChain + " - " + secondContractChain,
+    online: true,
+    balance: {
+      1: firstChainBalance,
+      2: secondChainBalance,
+    },
+  };
 };
