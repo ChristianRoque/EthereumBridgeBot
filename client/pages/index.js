@@ -1,6 +1,6 @@
 import Navbar from "../components/indexComponents/Navbar";
 import React from "react";
-import { useStore } from "../State/StoreContext";
+import { useStore } from "../state/StoreContext";
 import ContractPanel from "../components/indexComponents/ContractPanel";
 import styled from "styled-components";
 

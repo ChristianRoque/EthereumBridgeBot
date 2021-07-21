@@ -1,0 +1,131 @@
+{
+  "contractName": "A",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christianroque/Desktop/EthereumBridgeBot/contracts/contract.sol\":\"A\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christianroque/Desktop/EthereumBridgeBot/contracts/contract.sol\":{\"keccak256\":\"0xf31415738c06e70e3a7e14c3260b2efce23829f48e80acdfcd7ced0563a9e975\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://18c9e5e16fff6632a75506ed922604e36e118f7dfa17028899e42acaf7ea1c74\",\"dweb:/ipfs/QmNoe88Rf98Ed2bTsrnp3GzE7E2RfT8nfRyjvMwHhTRjew\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220fdcef0e9d623e3bd9643865231a8e971407de1609d7bc0840c78cac1b0948e1b64736f6c63430007060033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220fdcef0e9d623e3bd9643865231a8e971407de1609d7bc0840c78cac1b0948e1b64736f6c63430007060033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "66:13:1:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "66:13:1:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract A {}\n",
+  "sourcePath": "/Users/christianroque/Desktop/EthereumBridgeBot/contracts/contract.sol",
+  "ast": {
+    "absolutePath": "/Users/christianroque/Desktop/EthereumBridgeBot/contracts/contract.sol",
+    "exportedSymbols": {
+      "A": [
+        44
+      ]
+    },
+    "id": 45,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 43,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 44,
+        "linearizedBaseContracts": [
+          44
+        ],
+        "name": "A",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 45,
+        "src": "66:13:1"
+      }
+    ],
+    "src": "32:48:1"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/Users/christianroque/Desktop/EthereumBridgeBot/contracts/contract.sol",
+      "exportedSymbols": {
+        "A": [
+          44
+        ]
+      },
+      "license": "MIT"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".22",
+            "<",
+            "0.9",
+            ".0"
+          ]
+        },
+        "id": 43,
+        "name": "PragmaDirective",
+        "src": "32:32:1"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            44
+          ],
+          "name": "A",
+          "nodes": [
+            null
+          ],
+          "scope": 45
+        },
+        "id": 44,
+        "name": "ContractDefinition",
+        "src": "66:13:1"
+      }
+    ],
+    "id": 45,
+    "name": "SourceUnit",
+    "src": "32:48:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.6+commit.7338295f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-07-21T21:39:44.405Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

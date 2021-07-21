@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 import Image from "next/image";
-import { useStore } from "../../State/StoreContext";
+import { useStore } from "../../state/StoreContext";
 
 const MainContainer = styled.div`
   display: flex;

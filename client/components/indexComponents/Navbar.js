@@ -9,7 +9,7 @@ import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { observer } from "mobx-react-lite";
-import { useStore } from "../../State/StoreContext";
+import { useStore } from "../../state/StoreContext";
 import MetaMaskOnboarding from "@metamask/onboarding";
 
 const Bar = styled.div`
