@@ -10,6 +10,28 @@ export function createStateStore() {
   return {
     // ***************************** Blockchain State ****************************************
     userAddress: "0x0000000000000000000000000000000000000000",
+    bot: {
+      name: "Test",
+      address: "0x0000000000000000000000000000000000000000",
+      chain: "ETH | mainnet - BSC | mainnet",
+      online: true,
+      balance: 0,
+    },
+    firstContract: {
+      name: "First Contract",
+      address: "0x0000000000000000000000000000000000000000",
+      chain: "ETH | mainnet",
+      online: true,
+      balance: 0,
+    },
+    secondContract: {
+      name: "Second Contract",
+      address: "0x0000000000000000000000000000000000000000",
+      chain: "BSC | mainnet",
+      online: true,
+      balance: 0,
+    },
+
     async loadChain() {
       // Detect provider
       const provider = await detectEthereumProvider();

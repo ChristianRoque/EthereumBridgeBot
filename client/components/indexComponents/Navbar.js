@@ -25,6 +25,7 @@ const Bar = styled.div`
 const Left = styled.div`
   display: flex;
   width: 190px;
+  height: 100px;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
