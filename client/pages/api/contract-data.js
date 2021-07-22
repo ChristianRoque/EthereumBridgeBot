@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://reverent-mcnulty-a240c9.netlify.app/",
+  baseURL: "https://vast-atoll-52124.herokuapp.com/",
 });
 
 const errHandler = (err) => {
