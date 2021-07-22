@@ -51,9 +51,16 @@ const Icon = styled.div`
 const ContractPanel = observer(() => {
   const store = useStore();
 
+  const callAPI = () => {
+    fetch("http://localhost:3000/api/contract-data")
+      .then((response) => response.json())
+      .then((data) => (store.firstContract = data));
+  };
+
   return (
     <>
       <MainContainer>
+        <button onClick={callAPI}>CALL API</button>
         <ContractContainer>
           <Title>
             {store.firstContract.name}{" "}
