@@ -7,7 +7,7 @@ const PORT = 4000;
 const app = express();
 const appStatus = true;
 
-pp.listen(process.env.PORT || 4000, function () {
+app.listen(process.env.PORT || 4000, function () {
   console.log("Node app is working!");
 });
 
