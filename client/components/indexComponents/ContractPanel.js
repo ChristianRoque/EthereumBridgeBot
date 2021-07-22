@@ -5,7 +5,7 @@ import { useStore } from "../../state/StoreContext";
 
 const MainContainer = styled.div`
   display: flex;
-  margin: 3% 2% 3% 1%;
+  margin: 3% 2% 3% 2%;
   flex-direction: row;
   height: 400px;
   width: 98%;
