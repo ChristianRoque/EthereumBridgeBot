@@ -55,6 +55,7 @@ const ContractPanel = observer(() => {
     fetch("https://ethereum-bridge-bot.vercel.app/api/contract-data")
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         store.firstContract = data[0];
         store.secondContract = data[1];
         store.bot = data[2];
@@ -104,7 +105,7 @@ const ContractPanel = observer(() => {
           <TextField>
             Status: {store.bot.online ? "Online" : "Offline"}
           </TextField>
-          <TextField>Balance: {store.bot.balance}</TextField>
+          <TextField>Balance: {store.bot.balance[1]}</TextField>
         </ContractContainer>
       </MainContainer>
     </>

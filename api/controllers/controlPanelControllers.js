@@ -30,7 +30,7 @@ const privateKey = Buffer.from(process.env.PRIVATE_KEY, "hex");
 
 // Create first contract instance - ETH CHAIN
 const firstContractAddress = process.env.FIRST_CONTRACT_ADDRESS;
-const firstContractChain = "ETH | Rinkeby tesnet";
+const firstContractChain = "Rinkeby | tesnet";
 const firstContract = new web3ETH.eth.Contract(
   contractJSON.abi,
   firstContractAddress
@@ -38,7 +38,7 @@ const firstContract = new web3ETH.eth.Contract(
 
 // Create second contract instance - BSC CHAIN
 const secondContractAddress = process.env.SECOND_CONTRACT_ADDRESS;
-const secondContractChain = "BSC | BSC testnet";
+const secondContractChain = "BSC | testnet";
 const secondContract = new web3BSC.eth.Contract(
   contractJSON.abi,
   secondContractAddress
