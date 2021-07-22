@@ -52,9 +52,13 @@ const ContractPanel = observer(() => {
   const store = useStore();
 
   const callAPI = () => {
-    fetch("http://localhost:3000/api/contract-data")
+    fetch("https://ethereum-bridge-bot.vercel.app/api/contract-data")
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        store.firstContract = data[0];
+        store.secondContract = data[1];
+        store.bot = data[2];
+      });
   };
 
   return (

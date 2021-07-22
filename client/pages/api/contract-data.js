@@ -28,11 +28,11 @@ export default async function handler(req, res) {
     .catch(errHandler)
     .then((data) => (contractData[1] = data));
 
-  // await api
-  //   .get("/bot")
-  //   .then((res) => res.data)
-  //   .catch(errHandler)
-  //   .then((data) => (contractData[2] = data));
+  await api
+    .get("/bot")
+    .then((res) => res.data)
+    .catch(errHandler)
+    .then((data) => (contractData[2] = data));
 
   await res.status(200).json(contractData);
 }
