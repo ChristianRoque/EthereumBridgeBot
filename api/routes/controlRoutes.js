@@ -3,4 +3,5 @@ module.exports = function (app) {
 
   app.route("/firstContract").get(controllers.firstContractInfo);
   app.route("/secondContract").get(controllers.secondContractInfo);
+  app.route("/bot").get(controllers.botInfo);
 };

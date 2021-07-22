@@ -11,7 +11,10 @@ app.listen(process.env.PORT || 4000, function () {
   console.log("Node app is working!");
 });
 
-var whitelist = ["http://localhost:3000"];
+var whitelist = [
+  "http://localhost:3000",
+  "https://ethereum-bridge-bot-4g0roq9ov-christianroque.vercel.app/",
+];
 
 app.use(cors());
 app.use(
