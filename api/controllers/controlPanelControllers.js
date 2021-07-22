@@ -152,8 +152,8 @@ exports.secondContractInfo = async function (req, res) {
 };
 
 exports.botInfo = async function (req, res) {
-  const firstChainBalance = await web3ETH.eth.getBalance(contract);
-  const secondChainBalance = await web3BSC.eth.getBalance(contract);
+  const firstChainBalance = await web3ETH.eth.getBalance(account);
+  const secondChainBalance = await web3BSC.eth.getBalance(account);
 
   res.json({
     name: "Test",
