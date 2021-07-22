@@ -6,7 +6,6 @@ const Common = require("@ethereumjs/common").default;
 
 require("dotenv").config({ path: path.join(__dirname, "../../.env") });
 
-// Create web3 instance connected to node provider
 let web3ETH = new Web3(
   // In this case we will use infura to ethereum mainnet chain
   // Refer to web3 docs for more customization
@@ -123,13 +122,13 @@ exports.firstContractInfo = async function (req, res) {
     online: true,
     balance: balance,
   });
-  return {
+  res.json({
     name: "First Contract",
     address: firstContractAddress,
     chain: firstContractChain,
     online: true,
     balance: balance,
-  };
+  });
 };
 
 exports.secondContractInfo = async function (req, res) {
@@ -143,20 +142,20 @@ exports.secondContractInfo = async function (req, res) {
     balance: balance,
   });
 
-  return {
+  res.json({
     name: "Second Contract",
     address: secondContractAddress,
     chain: secondContractChain,
     online: true,
     balance: balance,
-  };
+  });
 };
 
 exports.botInfo = async function (req, res) {
   const firstChainBalance = web3ETH.eth.getBalance(firstContractAddress);
   const secondChainBalance = web3BSC.eth.getBalance(secondContractAddress);
 
-  return {
+  res.json({
     name: "Test",
     address: account,
     chain: firstContractChain + " - " + secondContractChain,
@@ -165,13 +164,14 @@ exports.botInfo = async function (req, res) {
       1: firstChainBalance,
       2: secondChainBalance,
     },
-  };
+  });
 };
 
 exports.contractInteraction = async function (req, res) {
   // Pull data from contract using web3 and infura node
   // Read docs for more customization
   // https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html
+
   try {
     const response = await contract.methods.contractFunction().call();
     console.log(response);

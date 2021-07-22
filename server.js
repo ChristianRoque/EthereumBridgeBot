@@ -11,7 +11,7 @@ app.listen(PORT, function () {
   console.log("Connected to Port: " + PORT);
 });
 
-var whitelist = ["http://localhost:4000"];
+var whitelist = ["http://localhost:3000"];
 
 app.use(cors());
 app.use(

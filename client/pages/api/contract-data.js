@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:4000/",
+  baseURL: "https://reverent-mcnulty-a240c9.netlify.app/",
 });
 
 const errHandler = (err) => {

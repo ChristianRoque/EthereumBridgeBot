@@ -4,7 +4,7 @@
   "description": "Ethereum API bot to handle crosschain communication between contracts. ",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
