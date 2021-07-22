@@ -1,29 +1,43 @@
 {
   "contractName": "A",
-  "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christianroque/Desktop/EthereumBridgeBot/contracts/contract.sol\":\"A\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christianroque/Desktop/EthereumBridgeBot/contracts/contract.sol\":{\"keccak256\":\"0xf31415738c06e70e3a7e14c3260b2efce23829f48e80acdfcd7ced0563a9e975\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://18c9e5e16fff6632a75506ed922604e36e118f7dfa17028899e42acaf7ea1c74\",\"dweb:/ipfs/QmNoe88Rf98Ed2bTsrnp3GzE7E2RfT8nfRyjvMwHhTRjew\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220fdcef0e9d623e3bd9643865231a8e971407de1609d7bc0840c78cac1b0948e1b64736f6c63430007060033",
-  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220fdcef0e9d623e3bd9643865231a8e971407de1609d7bc0840c78cac1b0948e1b64736f6c63430007060033",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getBalance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christianroque/Desktop/EthereumBridgeBot/contracts/contract.sol\":\"A\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christianroque/Desktop/EthereumBridgeBot/contracts/contract.sol\":{\"keccak256\":\"0x6faddf174971429a2719ebdaebde84b261a33d910e7ef8383a06ca5d915281e8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2649623c8e191523888a675f47bfcc79fd3aea5fb3dcc1a6441d956993d9f22a\",\"dweb:/ipfs/Qmc1EWasPjEyyB1DfSqLDbkoP8k4L3nWHsL2mwUUqRw1RM\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50608c8061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c806312065fe014602d575b600080fd5b60336049565b6040518082815260200191505060405180910390f35b600080479050809150509056fea2646970667358221220e03d16a2424e98240d3655c8af23026aea8062df185af7c6c56223e3aec0361b64736f6c63430007060033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c806312065fe014602d575b600080fd5b60336049565b6040518082815260200191505060405180910390f35b600080479050809150509056fea2646970667358221220e03d16a2424e98240d3655c8af23026aea8062df185af7c6c56223e3aec0361b64736f6c63430007060033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "66:13:1:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "66:13:1:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract A {}\n",
+  "sourceMap": "66:151:0:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "66:151:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;83:132;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;126:7;145:15;163:21;145:39;;201:7;194:14;;;83:132;:::o",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract A {\n    function getBalance() public view returns (uint256) {\n        uint256 balance = address(this).balance;\n        return balance;\n    }\n}\n",
   "sourcePath": "/Users/christianroque/Desktop/EthereumBridgeBot/contracts/contract.sol",
   "ast": {
     "absolutePath": "/Users/christianroque/Desktop/EthereumBridgeBot/contracts/contract.sol",
     "exportedSymbols": {
       "A": [
-        44
+        18
       ]
     },
-    "id": 45,
+    "id": 19,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 43,
+        "id": 1,
         "literals": [
           "solidity",
           ">=",
@@ -34,7 +48,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:32:1"
+        "src": "32:32:0"
       },
       {
         "abstract": false,
@@ -42,25 +56,210 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 44,
+        "id": 18,
         "linearizedBaseContracts": [
-          44
+          18
         ],
         "name": "A",
         "nodeType": "ContractDefinition",
-        "nodes": [],
-        "scope": 45,
-        "src": "66:13:1"
+        "nodes": [
+          {
+            "body": {
+              "id": 16,
+              "nodeType": "Block",
+              "src": "135:80:0",
+              "statements": [
+                {
+                  "assignments": [
+                    7
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 7,
+                      "mutability": "mutable",
+                      "name": "balance",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 16,
+                      "src": "145:15:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 6,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "145:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 13,
+                  "initialValue": {
+                    "expression": {
+                      "arguments": [
+                        {
+                          "id": 10,
+                          "name": "this",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4294967268,
+                          "src": "171:4:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_A_$18",
+                            "typeString": "contract A"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_contract$_A_$18",
+                            "typeString": "contract A"
+                          }
+                        ],
+                        "id": 9,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "163:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_address_$",
+                          "typeString": "type(address)"
+                        },
+                        "typeName": {
+                          "id": 8,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "163:7:0",
+                          "typeDescriptions": {}
+                        }
+                      },
+                      "id": 11,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "163:13:0",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 12,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "balance",
+                    "nodeType": "MemberAccess",
+                    "src": "163:21:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "145:39:0"
+                },
+                {
+                  "expression": {
+                    "id": 14,
+                    "name": "balance",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 7,
+                    "src": "201:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 5,
+                  "id": 15,
+                  "nodeType": "Return",
+                  "src": "194:14:0"
+                }
+              ]
+            },
+            "functionSelector": "12065fe0",
+            "id": 17,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getBalance",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "102:2:0"
+            },
+            "returnParameters": {
+              "id": 5,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 17,
+                  "src": "126:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "126:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "125:9:0"
+            },
+            "scope": 18,
+            "src": "83:132:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 19,
+        "src": "66:151:0"
       }
     ],
-    "src": "32:48:1"
+    "src": "32:186:0"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/Users/christianroque/Desktop/EthereumBridgeBot/contracts/contract.sol",
       "exportedSymbols": {
         "A": [
-          44
+          18
         ]
       },
       "license": "MIT"
@@ -78,9 +277,9 @@
             ".0"
           ]
         },
-        "id": 43,
+        "id": 1,
         "name": "PragmaDirective",
-        "src": "32:32:1"
+        "src": "32:32:0"
       },
       {
         "attributes": {
@@ -94,22 +293,230 @@
           "contractKind": "contract",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            44
+            18
           ],
           "name": "A",
-          "nodes": [
-            null
-          ],
-          "scope": 45
+          "scope": 19
         },
-        "id": 44,
+        "children": [
+          {
+            "attributes": {
+              "functionSelector": "12065fe0",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getBalance",
+              "scope": 18,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2,
+                "name": "ParameterList",
+                "src": "102:2:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "scope": 17,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3,
+                        "name": "ElementaryTypeName",
+                        "src": "126:7:0"
+                      }
+                    ],
+                    "id": 4,
+                    "name": "VariableDeclaration",
+                    "src": "126:7:0"
+                  }
+                ],
+                "id": 5,
+                "name": "ParameterList",
+                "src": "125:9:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        7
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "mutability": "mutable",
+                          "name": "balance",
+                          "scope": 16,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint256",
+                              "type": "uint256"
+                            },
+                            "id": 6,
+                            "name": "ElementaryTypeName",
+                            "src": "145:7:0"
+                          }
+                        ],
+                        "id": 7,
+                        "name": "VariableDeclaration",
+                        "src": "145:15:0"
+                      },
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "balance",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "address",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_contract$_A_$18",
+                                      "typeString": "contract A"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "type": "type(address)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "name": "address"
+                                    },
+                                    "id": 8,
+                                    "name": "ElementaryTypeName",
+                                    "src": "163:7:0"
+                                  }
+                                ],
+                                "id": 9,
+                                "name": "ElementaryTypeNameExpression",
+                                "src": "163:7:0"
+                              },
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4294967268,
+                                  "type": "contract A",
+                                  "value": "this"
+                                },
+                                "id": 10,
+                                "name": "Identifier",
+                                "src": "171:4:0"
+                              }
+                            ],
+                            "id": 11,
+                            "name": "FunctionCall",
+                            "src": "163:13:0"
+                          }
+                        ],
+                        "id": 12,
+                        "name": "MemberAccess",
+                        "src": "163:21:0"
+                      }
+                    ],
+                    "id": 13,
+                    "name": "VariableDeclarationStatement",
+                    "src": "145:39:0"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 5
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 7,
+                          "type": "uint256",
+                          "value": "balance"
+                        },
+                        "id": 14,
+                        "name": "Identifier",
+                        "src": "201:7:0"
+                      }
+                    ],
+                    "id": 15,
+                    "name": "Return",
+                    "src": "194:14:0"
+                  }
+                ],
+                "id": 16,
+                "name": "Block",
+                "src": "135:80:0"
+              }
+            ],
+            "id": 17,
+            "name": "FunctionDefinition",
+            "src": "83:132:0"
+          }
+        ],
+        "id": 18,
         "name": "ContractDefinition",
-        "src": "66:13:1"
+        "src": "66:151:0"
       }
     ],
-    "id": 45,
+    "id": 19,
     "name": "SourceUnit",
-    "src": "32:48:1"
+    "src": "32:186:0"
   },
   "compiler": {
     "name": "solc",
@@ -117,7 +524,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-07-21T21:39:44.405Z",
+  "updatedAt": "2021-07-22T01:12:01.476Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

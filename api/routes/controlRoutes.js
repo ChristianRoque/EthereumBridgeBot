@@ -1,6 +1,6 @@
 module.exports = function (app) {
-  var contract = require("../controllers/controlPanelControllers");
+  var controllers = require("../controllers/controlPanelControllers");
 
-  app.route("/firstContract").get(contract.ethereumContract);
-  app.route("/secondContract").get(contract.binanceContract);
+  app.route("/firstContract").get(controllers.firstContractInfo);
+  app.route("/secondContract").get(controllers.secondContractInfo);
 };

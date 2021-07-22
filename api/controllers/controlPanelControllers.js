@@ -1,7 +1,7 @@
 const Web3 = require("web3");
 const path = require("path");
 const Transaction = require("@ethereumjs/tx").Transaction;
-const contractJSON = require("../abis/Bank.json");
+const contractJSON = require("../abis/A.json");
 const Common = require("@ethereumjs/common").default;
 
 require("dotenv").config({ path: path.join(__dirname, "../../.env") });
@@ -11,7 +11,7 @@ let web3ETH = new Web3(
   // In this case we will use infura to ethereum mainnet chain
   // Refer to web3 docs for more customization
   new Web3.providers.WebsocketProvider(
-    "wss://mainnet.infura.io/ws/v3/" + process.env.INFURA_KEY
+    "wss://rinkeby.infura.io/ws/v3/" + process.env.INFURA_KEY
   )
 );
 
@@ -21,7 +21,7 @@ let web3BSC = new Web3(
   new Web3.providers.WebsocketProvider(
     "wss://speedy-nodes-nyc.moralis.io/" +
       process.env.MORALIS_KEY +
-      "/bsc/mainnet/ws"
+      "/bsc/testnet/ws"
   )
 );
 
@@ -34,7 +34,7 @@ const firstContractAddress = process.env.FIRST_CONTRACT_ADDRESS;
 const firstContractChain = "ETH | Rinkeby tesnet";
 const firstContract = new web3ETH.eth.Contract(
   contractJSON.abi,
-  contractAddress
+  firstContractAddress
 );
 
 // Create second contract instance - BSC CHAIN
@@ -42,7 +42,7 @@ const secondContractAddress = process.env.SECOND_CONTRACT_ADDRESS;
 const secondContractChain = "BSC | BSC testnet";
 const secondContract = new web3BSC.eth.Contract(
   contractJSON.abi,
-  contractAddress
+  secondContractAddress
 );
 
 exports.ethereumContract = async function (req, res) {
@@ -63,7 +63,7 @@ exports.ethereumContract = async function (req, res) {
       // data: myData,
     };
 
-    const common = new Common({ chain: "mainnet" });
+    const common = new Common({ chain: "rinkeby" });
     const tx = Transaction.fromTxData(txObject, { common });
 
     const signedTx = tx.sign(privateKey);
@@ -95,9 +95,9 @@ exports.binanceContract = async function (req, res) {
     };
 
     const common = Common.custom({
-      name: "BSC",
-      chainId: 56,
-      networkId: 56,
+      name: "BSC Testnet",
+      chainId: 97,
+      networkId: 97,
       defaultHardfork: "'petersburg'",
     });
 
@@ -113,21 +113,16 @@ exports.binanceContract = async function (req, res) {
   });
 };
 
-exports.contractInteraction = async function (req, res) {
-  // Pull data from contract using web3 and infura node
-  // Read docs for more customization
-  // https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html
-  try {
-    const response = await contract.methods.contractFunction().call();
-    console.log(response);
-  } catch (e) {
-    console.log("Error, reserver: ", e);
-  }
-};
-
 exports.firstContractInfo = async function (req, res) {
-  const balance = web3ETH.eth.getBalance(firstContractAddress);
+  const balance = await web3ETH.eth.getBalance(firstContractAddress);
 
+  console.log({
+    name: "First Contract",
+    address: firstContractAddress,
+    chain: firstContractChain,
+    online: true,
+    balance: balance,
+  });
   return {
     name: "First Contract",
     address: firstContractAddress,
@@ -138,7 +133,15 @@ exports.firstContractInfo = async function (req, res) {
 };
 
 exports.secondContractInfo = async function (req, res) {
-  const balance = web3BSC.eth.getBalance(secondContractAddress);
+  const balance = await web3BSC.eth.getBalance(secondContractAddress);
+
+  console.log({
+    name: "Second Contract",
+    address: secondContractAddress,
+    chain: secondContractChain,
+    online: true,
+    balance: balance,
+  });
 
   return {
     name: "Second Contract",
@@ -163,4 +166,16 @@ exports.botInfo = async function (req, res) {
       2: secondChainBalance,
     },
   };
+};
+
+exports.contractInteraction = async function (req, res) {
+  // Pull data from contract using web3 and infura node
+  // Read docs for more customization
+  // https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html
+  try {
+    const response = await contract.methods.contractFunction().call();
+    console.log(response);
+  } catch (e) {
+    console.log("Error, reserver: ", e);
+  }
 };
