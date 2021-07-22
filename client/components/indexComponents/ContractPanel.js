@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 import Image from "next/image";
 import { useStore } from "../../state/StoreContext";
+import axios from "axios";
 
 const MainContainer = styled.div`
   display: flex;
@@ -51,12 +52,26 @@ const Icon = styled.div`
 const ContractPanel = observer(() => {
   const store = useStore();
 
+  const next = axios.create({
+    baseURL:
+      "https://ethereum-bridge-bot-1u4cj4lof-christianroque.vercel.app/api",
+  });
+
+  const errHandler = (err) => {
+    console.error(err);
+    if (err.response && err.response.data) {
+      console.error("API response", err.response.data);
+      throw err.response.data.message;
+    }
+    throw err;
+  };
+
   const callAPI = () => {
-    fetch(
-      "https://ethereum-bridge-bot-1u4cj4lof-christianroque.vercel.app/api/contract-data"
-    )
-      .then((response) => response.json())
-      .then((data) => (store.firstContract = data));
+    next
+      .get("/contract-data")
+      .then((res) => res.data)
+      .catch(errHandler)
+      .then((data) => console.log(data));
   };
 
   return (
