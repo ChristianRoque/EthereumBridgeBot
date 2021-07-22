@@ -7,8 +7,8 @@ const PORT = 4000;
 const app = express();
 const appStatus = true;
 
-app.listen(PORT, function () {
-  console.log("Connected to Port: " + PORT);
+pp.listen(process.env.PORT || 4000, function () {
+  console.log("Node app is working!");
 });
 
 var whitelist = ["http://localhost:3000"];
