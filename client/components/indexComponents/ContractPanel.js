@@ -53,8 +53,7 @@ const ContractPanel = observer(() => {
   const store = useStore();
 
   const next = axios.create({
-    baseURL:
-      "https://ethereum-bridge-bot-1u4cj4lof-christianroque.vercel.app/api",
+    baseURL: "https://ethereum-bridge-bot.vercel.app/api",
   });
 
   const errHandler = (err) => {
