@@ -10,7 +10,8 @@ export default function Home() {
   const store = useStore();
 
   React.useEffect(() => {
-    store.loadChain();
+    store.contracts.loadChain();
+    store.contracts.fetchContractData();
   }, []);
 
   return (

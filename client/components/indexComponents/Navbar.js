@@ -84,7 +84,9 @@ const NavBar = observer(() => {
     if (MetaMaskOnboarding.isMetaMaskInstalled()) {
       window.ethereum
         .request({ method: "eth_requestAccounts" })
-        .then((newAccounts) => (store.userAddress = String(newAccounts)));
+        .then(
+          (newAccounts) => (store.contracts.userAddress = String(newAccounts))
+        );
     } else {
       onboarding.current.startOnboarding();
     }
@@ -106,18 +108,20 @@ const NavBar = observer(() => {
           <Connect
             onClick={onClick}
             disabled={
-              store.userAddress != "0x0000000000000000000000000000000000000000"
+              store.contracts.userAddress !=
+              "0x0000000000000000000000000000000000000000"
             }
           >
-            {store.userAddress != "0x0000000000000000000000000000000000000000"
+            {store.contracts.userAddress !=
+            "0x0000000000000000000000000000000000000000"
               ? ""
               : "Connect"}
           </Connect>
           <UserInfo>
             {" "}
-            {store.userAddress.substring(0, 4) +
+            {store.contracts.userAddress.substring(0, 4) +
               "..." +
-              store.userAddress.substring(36, 42)}{" "}
+              store.contracts.userAddress.substring(36, 42)}{" "}
           </UserInfo>
           <div>
             <Button

@@ -3,7 +3,6 @@ const path = require("path");
 const Transaction = require("@ethereumjs/tx").Transaction;
 const contractJSON = require("../abis/A.json");
 const Common = require("@ethereumjs/common").default;
-
 require("dotenv").config({ path: path.join(__dirname, "../../.env") });
 
 let web3ETH = new Web3(
@@ -49,7 +48,7 @@ exports.ethereumContract = async function (req, res) {
   // Read docs for more customization
   // https://web3js.readthedocs.io/en/v1.3.4/web3-eth.html
 
-  // let myData = contract.methods.anyMethod().encodeABI();
+  let myData = contract.methods.getBalance().encodeABI();
 
   web3ETH.eth.getTransactionCount(account, (err, txCount) => {
     const txObject = {
@@ -59,7 +58,7 @@ exports.ethereumContract = async function (req, res) {
       value: web3ETH.utils.toHex(web3ETH.utils.toWei("0.001", "ether")),
       gasLimit: web3ETH.utils.toHex(21000),
       gasPrice: web3ETH.utils.toHex(web3ETH.utils.toWei("20", "gwei")),
-      // data: myData,
+      data: myData,
     };
 
     const common = new Common({ chain: "rinkeby" });
@@ -80,7 +79,7 @@ exports.binanceContract = async function (req, res) {
   // Read docs for more customization
   // https://web3js.readthedocs.io/en/v1.3.4/web3-eth.html
 
-  // let myData = secondContract.methods.anyMethod().encodeABI();
+  let myData = secondContract.methods.getBalance().encodeABI();
 
   web3BSC.eth.getTransactionCount(account, (err, txCount) => {
     const txObject = {
@@ -90,7 +89,7 @@ exports.binanceContract = async function (req, res) {
       value: web3BSC.utils.toHex(web3BSC.utils.toWei("0.001", "ether")),
       gasLimit: web3BSC.utils.toHex(21000),
       gasPrice: web3BSC.utils.toHex(web3BSC.utils.toWei("20", "gwei")),
-      // data: myData,
+      data: myData,
     };
 
     const common = Common.custom({
@@ -115,47 +114,37 @@ exports.binanceContract = async function (req, res) {
 exports.firstContractInfo = async function (req, res) {
   const balance = await web3ETH.eth.getBalance(firstContractAddress);
 
-  console.log({
+  const contractInfo = {
     name: "First Contract",
     address: firstContractAddress,
     chain: firstContractChain,
     online: true,
     balance: balance,
-  });
-  res.json({
-    name: "First Contract",
-    address: firstContractAddress,
-    chain: firstContractChain,
-    online: true,
-    balance: balance,
-  });
+  };
+
+  console.log(contractInfo);
+  res.json(contractInfo);
 };
 
 exports.secondContractInfo = async function (req, res) {
   const balance = await web3BSC.eth.getBalance(secondContractAddress);
 
-  console.log({
+  const contractInfo = {
     name: "Second Contract",
     address: secondContractAddress,
     chain: secondContractChain,
     online: true,
     balance: balance,
-  });
+  };
 
-  res.json({
-    name: "Second Contract",
-    address: secondContractAddress,
-    chain: secondContractChain,
-    online: true,
-    balance: balance,
-  });
+  console.log(contractInfo);
+  res.json(contractInfo);
 };
 
 exports.botInfo = async function (req, res) {
   const firstChainBalance = await web3ETH.eth.getBalance(account);
   const secondChainBalance = await web3BSC.eth.getBalance(account);
-
-  res.json({
+  const botInfo = {
     name: "Test",
     address: account,
     chain: firstContractChain + " - " + secondContractChain,
@@ -164,7 +153,10 @@ exports.botInfo = async function (req, res) {
       1: firstChainBalance,
       2: secondChainBalance,
     },
-  });
+  };
+
+  console.log(botInfo);
+  res.json(botInfo);
 };
 
 exports.contractInteraction = async function (req, res) {

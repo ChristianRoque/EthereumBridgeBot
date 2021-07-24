@@ -51,46 +51,36 @@ const Icon = styled.div`
 const ContractPanel = observer(() => {
   const store = useStore();
 
-  const callAPI = () => {
-    fetch("https://ethereum-bridge-bot.vercel.app/api/contract-data")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        store.firstContract = data[0];
-        store.secondContract = data[1];
-        store.bot = data[2];
-      });
-  };
+  const firstContract = store.contracts.firstContract;
+  const secondContract = store.contracts.secondContract;
+  const bot = store.contracts.bot;
 
   return (
     <>
       <MainContainer>
-        <button onClick={callAPI}>CALL API</button>
         <ContractContainer>
           <Title>
-            {store.firstContract.name}{" "}
-            <Chain>{store.firstContract.chain}</Chain>
+            {firstContract.name} <Chain>{firstContract.chain}</Chain>
           </Title>
-          <TextField>Address: {store.firstContract.address}</TextField>
+          <TextField>Address: {firstContract.address}</TextField>
           <TextField>
-            Status: {store.firstContract.online ? "Online" : "Offline"}
+            Status: {firstContract.online ? "Online" : "Offline"}
           </TextField>
-          <TextField>Balance: {store.firstContract.balance}</TextField>
+          <TextField>Balance: {firstContract.balance}</TextField>
         </ContractContainer>
         <ContractContainer>
           <Title>
-            {store.secondContract.name}{" "}
-            <Chain>{store.secondContract.chain}</Chain>
+            {secondContract.name} <Chain>{secondContract.chain}</Chain>
           </Title>
-          <TextField>Address: {store.secondContract.address}</TextField>
+          <TextField>Address: {secondContract.address}</TextField>
           <TextField>
-            Status: {store.secondContract.online ? "Online" : "Offline"}
+            Status: {secondContract.online ? "Online" : "Offline"}
           </TextField>
-          <TextField>Balance: {store.secondContract.balance}</TextField>
+          <TextField>Balance: {secondContract.balance}</TextField>
         </ContractContainer>
         <ContractContainer>
           <Title>
-            BridgeBot - {store.bot.name}
+            BridgeBot - {bot.name}
             <Icon>
               <Image
                 src="https://img.icons8.com/pastel-glyph/2x/robot-2.png"
@@ -99,13 +89,11 @@ const ContractPanel = observer(() => {
                 height={30}
               />
             </Icon>
-            <Chain>{store.bot.chain}</Chain>
+            <Chain>{bot.chain}</Chain>
           </Title>
-          <TextField>Address: {store.bot.address}</TextField>
-          <TextField>
-            Status: {store.bot.online ? "Online" : "Offline"}
-          </TextField>
-          <TextField>Balance: {store.bot.balance[1]}</TextField>
+          <TextField>Address: {bot.address}</TextField>
+          <TextField>Status: {bot.online ? "Online" : "Offline"}</TextField>
+          <TextField>Balance: {bot.balance[1]}</TextField>
         </ContractContainer>
       </MainContainer>
     </>
