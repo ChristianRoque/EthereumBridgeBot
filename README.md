@@ -1,6 +1,12 @@
-## Technologies
 
-#### API / Bot
+## Ethereum Bridge Bot
+### About 
+
+A small template of an API/Bot running a bridge between two Ethereum chains. The bot was built using Javascript, Express.js, Web3, Infura and Moralis as node providers of choice to connect to the desired chain. Moreover, this template also comes with a truffle setup and dummy contract ready to be deployed once the wallet is connected. This bot is connected to a React.js and Next.js frontend with pertaining information of contract address, value, and status. Extra fields can be added and modified with more customization on contract and bot information. All data is saved to a global state setup using Mobx. Metamask wallet support comes built-in but more can be added if desired.
+
+### Technologies
+
+#### API / Bot  
 
 ```
 @ethereumjs/common
@@ -17,7 +23,7 @@ web3
 nodemon
 ```
 
-#### Frontend
+#### Frontend 
 
 ```
 @material-ui/core
@@ -35,8 +41,57 @@ styled-components
 web3
 ```
 
-## About
+### Installation and setup
 
-A small template of a API/Bot running a bridge between two Ethereum chains. The bot was built using Javascript, Express.js, Web3 and Infura and other node providers of choice to connect to desirable chain. Moreover, this template also comes with a truffle setup and dummy contract ready to be deployed once wallet is connected. This bot is connected to a React.js and Next.js frontend with pertaining information of contract address, value and status. Extra fields can be added and modified with more customization on contract and bot information. All data is saved to a global state setup using Mobx. Metamask wallet support comes built-in but more can be added if desired.
+#### Cloning repo
+```
+git clone https://github.com/ChristianRoque/EthereumBridgeBot.git
+```
 
-## Installation and setup
+#### Backend Setup
+```
+npm install 
+touch .env
+```
+
+Create enviromental variables inside .env file.
+
+```
+INFURA_KEY= <infura_node_key>
+MORALIS_KEY= <moralis_node_key>
+BOT_ADDRESS= <bot_wallet_address>
+PRIVATE_KEY= <bot_private_key>
+FIRST_CONTRACT_ADDRESS= <contract_address>
+SECOND_CONTRACT_ADDRESS= <contract_address>
+```
+> Note: These variables must also be added during the deployment process with the hosting provider. For this demo, Heroku was used to upload and host the API.
+
+Start app running: 
+```
+npm start
+```
+
+#### Frontend Setup 
+
+```
+cd client
+npm install
+```
+
+Inside client nagivate to global state to change root address of API.
+
+```
+client
+   |
+  state 
+    |
+  stateStore.js
+```
+
+Change `root`.
+
+```
+root: "http://localhost:3000/"
+```
+
+ 
